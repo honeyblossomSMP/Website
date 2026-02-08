@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HoneyBlossomSMP Wiki — Commands</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+    /* Tab styles */
+    .tabs { background: rgba(255,255,255,0.02); border-radius: 12px; padding: 1rem; }
+    .tab-nav { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem; }
+    .tab-btn { background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); color: #ddd; padding:0.5rem 0.75rem; border-radius:8px; cursor:pointer; }
+    .tab-btn.active { background: linear-gradient(90deg,var(--honey),var(--blossom)); color: #121212; font-weight:700; border-color: transparent; }
+    .tab-panel { display:none; padding:0.5rem 0; color:#ddd; }
+    .tab-panel.active { display:block; }
+    pre { background: rgba(255,255,255,0.02); padding:0.75rem; border-radius:8px; overflow:auto; }
+
+    /* Two-column command layout */
+    .cmd-list { display: grid; grid-template-columns: 260px 1fr; gap: 0.25rem 1rem; align-items:start; }
+    .cmd-list dt { font-family: monospace; color: #fff; }
+    .cmd-list dd { margin: 0 0 0.5rem 0; color: #ddd; }
+    @media (max-width: 640px) { .cmd-list { grid-template-columns: 1fr; } .cmd-list dt { margin-bottom: 0.35rem; } }
+
+    /* Match homepage theme */
+    .tabs { box-shadow: 0 20px 60px rgba(0,0,0,0.6); border: 1px solid rgba(255,183,197,0.03); background: linear-gradient(180deg, rgba(18,18,18,0.9), rgba(20,20,20,0.85)); }
+    .tabs h2 { color: var(--honey); }
+    .tabs h3 { color: var(--blossom); }
+    .title-container { padding-top: 2.5rem; padding-bottom: 2rem; }
+    .blossom-container { z-index: 0; }
+
+    /* Petal container */
+    .wiki .blossom-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8rem; /* Match homepage */
+        overflow: visible;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* Sync petals with main animation */
+    .wiki .petal {
+        animation-name: fall !important;
+        animation-timing-function: linear !important;
+        animation-iteration-count: infinite !important;
+        animation-fill-mode: both !important;
+        opacity: 0;
+    }
+    /* keep main content above the petals so reading isn't interrupted */
+    .wiki main, .wiki .tabs, .wiki .content-card { position: relative; z-index: 2; }
+    </style>
+</head>
+<body class="wiki">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="staff.html">Staff</a></li>
+                <li><a href="https://discord.gg/De2NNtTgkZ" target="_blank" class="nav-btn">Join Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="title-container">
+                <div class="blossom-container" id="blossom-box"></div>
+                <h1 class="main-title"><span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span> Wiki</h1>
+            </div>
+        </div>
+    </header>
+
+    <main style="max-width:1100px;margin:2rem auto;padding:1rem;">
+        <div class="tabs" role="tablist">
+            <nav class="tab-nav" aria-label="Wiki sections">
+                <button class="tab-btn" data-tab="join" role="tab" aria-selected="true">How to Join</button>
+                <button class="tab-btn" data-tab="commands" role="tab">Commands</button>
+                <button class="tab-btn" data-tab="claiming" role="tab">Land Claiming</button>
+                <button class="tab-btn" data-tab="economy" role="tab">Economy</button>
+                <button class="tab-btn" data-tab="voting" role="tab">Server Voting</button>
+            </nav>
+
+            <div class="tab-panels">
+                <section id="join" class="tab-panel active" role="tabpanel">
+                    <h2>How to Join</h2>
+                    <p>To join HoneyBlossomSMP:</p>
+                    <ol>
+                        <li>Join the <a href="https://discord.gg/De2NNtTgkZ" target="_blank">Discord server</a></li>
+                        <li>Read the rules in <strong>#rules</strong>.</li>
+                        <li>Create a support ticket and request whitelisting.</li>
+                    </ol>
+                    <p>Staff will process your ticket — check Discord for updates.</p>
+                </section>
+
+                <section id="commands" class="tab-panel" role="tabpanel">
+                    <h2>Player Commands (Sorted)</h2>
+                    <p>Organized player-focused commands. Replace or extend these with plugin-specific variants if needed.</p>
+
+                    <h3>1 - Teleportation</h3>
+                    <p><strong>Player Teleporting</strong></p>
+                    <dl class="cmd-list">
+                        <dt><code>/tpa &lt;player&gt;</code></dt><dd>Request to teleport to a player</dd>
+                        <dt><code>/tpahere &lt;player&gt;</code></dt><dd>Request for a player to teleport to you</dd>
+                        <dt><code>/tpacancel</code></dt><dd>Cancel your teleport request</dd>
+                        <dt><code>/tpaaccept</code></dt><dd>Accept your teleport request</dd>
+                    </dl>
+
+                    <p><strong>Homes (Currently 1 Home)</strong></p>
+                    <dl class="cmd-list">
+                        <dt><code>/sethome &lt;name&gt;</code></dt><dd>Set a home</dd>
+                        <dt><code>/delhome &lt;name&gt;</code></dt><dd>Delete a home</dd>
+                        <dt><code>/home &lt;name&gt;</code></dt><dd>Teleport to your home</dd>
+                    </dl>
+
+                    <p><strong>Warps</strong></p>
+                    <dl class="cmd-list">
+                        <dt><code>/pw</code></dt><dd>Open the Player Warps menu</dd>
+                        <dt><code>/pw &lt;name&gt;</code></dt><dd>Teleport to that warp</dd>
+                    </dl>
+
+                    <h3>2 - Claiming & Protection</h3>
+                    <p>Use a wooden shovel to claim: right-click one corner and then the opposite corner. View boundaries with a stick. You gain 175 claim blocks per hour of playtime.</p>
+                    <dl class="cmd-list">
+                        <dt><code>/claim</code></dt><dd>Claim the land you are standing on</dd>
+                        <dt><code>/unclaim</code></dt><dd>Remove your claim</dd>
+                        <dt><code>/extendclaim &lt;number&gt;</code></dt><dd>Extend your claim in facing direction</dd>
+                        <dt><code>/trust &lt;player&gt;</code></dt><dd>Allow a player to build inside your claim</dd>
+                        <dt><code>/untrust &lt;player&gt;</code></dt><dd>Remove the player’s access</dd>
+                        <dt><code>/containertrust &lt;player&gt;</code></dt><dd>Allow chest/container access</dd>
+                        <dt><code>/accesstrust &lt;player&gt;</code></dt><dd>Allow door/button/use access</dd>
+                        <dt><code>/permissiontrust &lt;player&gt;</code></dt><dd>Allow a trusted player to grant trusts below their level</dd>
+                        <dt><code>/claimlist</code></dt><dd>List your claims & claim block usage</dd>
+                        <dt><code>/trustlist</code></dt><dd>List players you have trusted and levels</dd>
+                    </dl>
+
+                    <h3>3 - Jobs, Skills & Leveling</h3>
+                    <p>Pick up to 3 jobs to earn income. Recommended starter jobs: Hunter, Miner, Builder.</p>
+                    <dl class="cmd-list">
+                        <dt><code>/jobs browse</code></dt><dd>List available jobs</dd>
+                        <dt><code>/jobs join &lt;job&gt;</code></dt><dd>Join a job</dd>
+                        <dt><code>/jobs stats</code></dt><dd>Show your job progress</dd>
+                        <dt><code>/jobs leave &lt;job&gt;</code></dt><dd>Leave a job</dd>
+                    </dl>
+
+                    <h3>4 - Auction House</h3>
+                    <p>Most actions available via GUI; commands shown for convenience.</p>
+                    <dl class="cmd-list">
+                        <dt><code>/ah</code></dt><dd>Open the auction house GUI</dd>
+                        <dt><code>/ah sell &lt;price&gt;</code></dt><dd>Sell item</dd>
+                        <dt><code>/ah list</code></dt><dd>List your items</dd>
+                        <dt><code>/ah expired</code></dt><dd>View expired listings</dd>
+                        <dt><code>/ah cancel</code></dt><dd>Cancel a listing</dd>
+                    </dl>
+
+                    <h3>5 - General Server Utilities</h3>
+                    <dl class="cmd-list">
+                        <dt><code>/spawn</code></dt><dd>Teleport to spawn</dd>
+                        <dt><code>/res</code></dt><dd>Teleport to resource overworld</dd>
+                        <dt><code>/resneth</code></dt><dd>Teleport to resource nether</dd>
+                        <dt><code>/died</code></dt><dd>Show locations of your graves</dd>
+                        <dt><code>/nv</code></dt><dd>Give night vision</dd>
+                        <dt><code>/nv off</code></dt><dd>Remove night vision</dd>
+                        <dt><code>/afk</code></dt><dd>Mark yourself as AFK</dd>
+                        <dt><code>/msg &lt;player&gt; &lt;text&gt;</code></dt><dd>Send a private message</dd>
+                        <dt><code>/reply</code> or <code>/r</code></dt><dd>Reply to last message</dd>
+                        <dt><code>/bal</code></dt><dd>Show your money balance</dd>
+                        <dt><code>/pay &lt;player&gt; &lt;amount&gt;</code></dt><dd>Pay another player</dd>
+                        <dt><code>/buy &lt;rank&gt;</code></dt><dd>Buy ranks (store/vote dependent)</dd>
+                        <dt><code>/map3d</code></dt><dd>Open BlueMap (bluemap viewer)</dd>
+                        <dt><code>/map</code></dt><dd>Open SquareMap (2D map viewer)</dd>
+                    </dl>
+
+                    <p>If you want these split further by plugin (EssentialsX, GriefPrevention, Jobs, Auction plugin names), tell me which plugins are active and I’ll tailor the commands to match.</p>
+                </section>
+
+                <section id="claiming" class="tab-panel" role="tabpanel">
+                    <h2>Land Claiming</h2>
+                    <p>Protect your builds and collaborate with friends. The server uses GriefPrevention (use a wooden shovel to create claims):</p>
+                    <dl class="cmd-list">
+                        <dt><code>/claim</code></dt><dd>Claim the land you are standing on (use wooden shovel to select corners)</dd>
+                        <dt><code>/unclaim</code></dt><dd>Remove your claim</dd>
+                        <dt><code>/extendclaim &lt;n&gt;</code></dt><dd>Extend your claim in the direction you're facing by n blocks</dd>
+                        <dt><code>/trust &lt;player&gt;</code></dt><dd>Allow a player to build in your claim</dd>
+                        <dt><code>/untrust &lt;player&gt;</code></dt><dd>Remove the player’s access</dd>
+                        <dt><code>/containertrust &lt;player&gt;</code></dt><dd>Allow chest/container access</dd>
+                        <dt><code>/accesstrust &lt;player&gt;</code></dt><dd>Allow door/button/use access</dd>
+                        <dt><code>/permissiontrust &lt;player&gt;</code></dt><dd>Allow trusted player to grant trusts below their level</dd>
+                        <dt><code>/claimlist</code></dt><dd>List your claims & claim block usage</dd>
+                        <dt><code>/trustlist</code></dt><dd>List players you have trusted and levels</dd>
+                    </dl>
+                    <p>Tips: Start with small claims near spawn and expand as you play. Claim boundaries are visible with the stick tool.</p>
+                </section>
+
+                <section id="economy" class="tab-panel" role="tabpanel">
+                    <h2>Economy</h2>
+                    <p>Overview of economy and job commands (EssentialsX / Jobs plugins may vary).</p>
+
+                    <h3>Jobs (Max 3)</h3>
+                    <p>Players can have up to <strong>3 jobs</strong> simultaneously. Join jobs to earn money while you play.</p>
+                    <dl class="cmd-list">
+                        <dt><code>/jobs browse</code></dt><dd>List all available jobs</dd>
+                        <dt><code>/jobs join &lt;job&gt;</code></dt><dd>Join a job (alias: <code>/job join &lt;job&gt;</code> on some setups)</dd>
+                        <dt><code>/jobs stats</code></dt><dd>View your job progress</dd>
+                        <dt><code>/jobs leave &lt;job&gt;</code></dt><dd>Leave a job</dd>
+                    </dl>
+
+                    <p><strong>Available Jobs</strong> (common on the server):</p>
+                    <ul>
+                        <li>Beekeeper</li>
+                        <li>Builder</li>
+                        <li>Digger</li>
+                        <li>Hunter</li>
+                        <li>Explorer</li>
+                        <li>Brewer</li>
+                        <li>Crafter</li>
+                        <li>Enchanter</li>
+                        <li>Farmer</li>
+                        <li>Fisherman</li>
+                        <li>Miner</li>
+                        <li>Weaponsmith</li>
+                        <li>Woodcutter</li>
+                    </ul>
+
+                    <h3>Economy Commands</h3>
+                    <dl class="cmd-list">
+                        <dt><code>/bal</code></dt><dd>Show your money balance</dd>
+                        <dt><code>/pay &lt;player&gt; &lt;amount&gt;</code></dt><dd>Send money to another player</dd>
+                        <dt><code>/sell &lt;item&gt;</code></dt><dd>Sell an item at configured shop (plugin-dependent)</dd>
+                        <dt><code>/shop</code></dt><dd>Open server shop GUI (if provided)</dd>
+                    </dl>
+
+                    <p>Shops, prices and job payouts are configured by admins — check Discord or in-game signs for public shop listings and payout info.</p>
+
+                    <h3>QuickShop</h3>
+                    <p>Player shop commands (server uses QuickShop-style commands):</p>
+                    <dl class="cmd-list">
+                        <dt><code>/qs create &lt;price&gt;</code></dt><dd>Create a shop (usually place chest/sign then run this)</dd>
+                        <dt><code>/qs buy &lt;shopId&gt; &lt;amount&gt;</code></dt><dd>Buy items from a QuickShop</dd>
+                        <dt><code>/qs sell &lt;shopId&gt; &lt;amount&gt;</code></dt><dd>Sell items to a QuickShop</dd>
+                        <dt><code>/qs remove</code></dt><dd>Remove your shop</dd>
+                        <dt><code>/qs info &lt;shopId&gt;</code></dt><dd>Show information about a shop</dd>
+                    </dl>
+                    <p>Exact command syntax can vary by configuration — run <code>/help qs</code> or check Discord for full docs.</p>
+
+                    <h3>Fadah Auction House</h3>
+                    <p>Players only need the following command to use the auction house:</p>
+                    <dl class="cmd-list">
+                        <dt><code>/ah</code></dt><dd>Open the auction house GUI (player-facing command)</dd>
+                    </dl>
+                    
+                    <h3>NOrder</h3>
+                    <p>NOrder allows players to place item orders/requests on the market.</p>
+                    <dl class="cmd-list">
+                        <dt><code>/order &lt;item&gt; &lt;amount&gt;</code></dt><dd>Place an order/request for an item (server may require shop funds or specific syntax)</dd>
+                    </dl>
+                </section>
+
+                <section id="join" class="tab-panel" role="tabpanel">
+                    <h2>How to Join</h2>
+                    <p>Steps to join the server:</p>
+                    <ol>
+                        <li>Add the server IP: <strong>honeyblossomsmp.org</strong> in your Minecraft multiplayer list.</li>
+                        <li>Make sure your client version matches the server (1.21.x).</li>
+                        <li>If the server is whitelisted, join the Discord and request access from staff.</li>
+                        <li>Read the rules in Discord before building.</li>
+                    </ol>
+                </section>
+
+                <section id="voting" class="tab-panel" role="tabpanel">
+                    <h2>Server Voting</h2>
+                    <p>Support the server by voting on server lists. Common flow:</p>
+                    <ul>
+                        <li>Visit the server vote page(s) linked in Discord or on the website.</li>
+                        <li>Complete the captcha / voting action.</li>
+                        <li>Return in-game and run <code>/vote</code></li>
+                    </ul>
+                    <p>Rewards often include in-game currency, keys, or temporary perks — check the voting page for details.</p>
+                </section>
+            </div>
+
+            <hr>
+        </div>
+    </main>
+
+    <script>
+    // Simple tab-switching logic
+    (function(){
+        const buttons = document.querySelectorAll('.tab-btn');
+        const panels = document.querySelectorAll('.tab-panel');
+        buttons.forEach(b=>b.addEventListener('click', ()=>{
+            buttons.forEach(x=>{ x.classList.remove('active'); x.setAttribute('aria-selected','false'); });
+            panels.forEach(p=>p.classList.remove('active'));
+            b.classList.add('active'); b.setAttribute('aria-selected','true');
+            const id = b.dataset.tab; document.getElementById(id).classList.add('active');
+        }));
+    })();
+    </script>
+
+    <script>
+    // Local petal generator for the wiki header (keeps visuals like homepage)
+    (function createPetals(){
+        const container = document.getElementById('blossom-box');
+        if (!container) return;
+        container.innerHTML = '';
+        const petalCount = 18;
+        for (let i = 0; i < petalCount; i++) {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            const startX = Math.random() * 100;
+            const size = Math.random() * 8 + 6; // match rules sizing
+            const duration = Math.random() * 4 + 4; // match rules duration
+            const delay = Math.random() * 8;
+            petal.style.left = `${startX}%`;
+            petal.style.top = '-12px';
+            petal.style.width = `${size}px`;
+            petal.style.height = `${size}px`;
+            petal.style.animationName = 'fall';
+            petal.style.animationDuration = `${duration}s`;
+            petal.style.animationDelay = `-${delay}s`;
+            container.appendChild(petal);
+        }
+    })();
+    </script>
+
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 <span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span>. Wiki page.</p>
+        </div>
+    </footer>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

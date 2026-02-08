@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoneyBlossomSMP | Official Community</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-honey">Honey</span>
+                <span class="logo-blossom">Blossom</span>
+                <span class="logo-smp">SMP</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="pages/wiki.html">Wiki</a></li>
+                <li><a href="pages/rules.html">Rules</a></li>
+                <li><a href="pages/staff.html">Staff</a></li>
+                <li><a href="#map">World Map</a></li>
+                <li><a href="https://discord.gg/De2NNtTgkZ" target="_blank" class="nav-btn">Join Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="title-container">
+                <div class="blossom-container" id="blossom-box"></div>
+                <h1 class="main-title"><span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span></h1>
+            </div>
+            
+            <p class="subtitle">A Vanilla+ Survival Experience</p>
+            
+            <a href="https://discord.gg/De2NNtTgkZ" target="_blank" class="discord-link-wrapper">
+                <div class="discord-card">
+                    <span class="label">JOIN THE COMMUNITY</span>
+                    <span class="dc-text">Join Discord to get the IP</span>
+                    <span class="click-hint">discord.gg/De2NNtTgkZ</span>
+                </div>
+            </a>
+
+            <div class="status-bar">
+                <span id="player-count">Pinging Server...</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="map" class="map-container">
+        <div class="section-header">
+            <h2>Live World Explorer</h2>
+            <p>Explore our world in real-time.</p>
+        </div>
+        <iframe src="https://map.honeyblossomsmp.org" allowfullscreen></iframe>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3><span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span></h3>
+                <p>A premium community <span class="logo-smp">SMP</span> powered by Ryzen 9 9950X hardware. Fast, stable, and sweet.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://discord.gg/De2NNtTgkZ">Support</a></li>
+                    <li><a href="rules.html">Rules</a></li>
+                    <li><a href="#map">Live Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-status">
+                <h4>Server Info</h4>
+                <p>Version: 1.21.x</p>
+                <p id="footer-player-count">Loading players...</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 <span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span>. Not an official Minecraft product.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

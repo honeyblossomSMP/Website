@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoneyBlossomSMP — Rules</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* Page-specific styles */
+        .content-card { max-width: 900px; margin: 2rem auto; background: linear-gradient(180deg, rgba(18,18,18,0.95), rgba(16,16,16,0.9)); border: 1px solid rgba(255,183,197,0.03); box-shadow: 0 30px 80px rgba(0,0,0,0.6); border-radius: 12px; padding: 2rem; }
+        .rules-list { color: #ddd; line-height: 1.6; }
+        .rules-list li { margin: 0.6rem 0; }
+        .title-container { padding-top: 2.5rem; padding-bottom: 1.5rem; }
+        .blossom-container { z-index: 0; }
+        /* Content above petals */
+        .rules main, .rules .content-card { position: relative; z-index: 2; }
+        .rules .blossom-container { overflow: visible; }
+    </style>
+</head>
+<body class="rules">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="wiki.html">Wiki</a></li>
+                <li><a href="staff.html">Staff</a></li>
+                <li><a href="https://discord.gg/De2NNtTgkZ" target="_blank" class="nav-btn">Join Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="title-container">
+                <div class="blossom-container" id="blossom-box"></div>
+                <h1 class="main-title"><span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span> Rules</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-card">
+            <h2 style="color:var(--honey); margin-top:0">Server Rules</h2>
+            <p class="subtitle" style="margin-top:0.25rem; color:#ccc;">Welcome — please read these rules so everyone can enjoy the server.</p>
+
+            <ol class="rules-list">
+                <li>Use common sense and act respectfully toward other players.</li>
+                <li>Treat others with respect; harassment, hate speech, or discriminatory language is prohibited.</li>
+                <li>If asked to verify your age by staff, you must comply; refusal may result in removal.</li>
+                <li>Play fairly — do not use exploits, dupes, hacked clients, or cracked accounts.</li>
+                <li>Claims are protected; staff may also enforce a buffer zone around claims when necessary.</li>
+                <li>PvP is optional and high-risk; enabling PvP is at your own risk. Do not kill players who have PvP disabled.</li>
+                <li>Keep public chat appropriate. Avoid excessive swearing, sexual content, gore, political debate, or other topics that make others uncomfortable.</li>
+                <li>Public chat must be in English to keep moderation consistent.</li>
+                <li>Do not share personal information (yours or others').</li>
+                <li>Disallowed software includes X-ray, autoclickers, KillAura, Baritone, and other cheating tools.</li>
+                <li>Avoid lag-inducing builds (zero-tick farms, excessive redstone or structures that harm server performance).</li>
+                <li>Do not TP-trap, TP-bait, use others' homes/warps without permission, or harass players to teleport to you.</li>
+                <li>Follow staff instructions, provide evidence when reporting issues, and do not argue punishments in public chat.</li>
+                <li>Do not submit false reports.</li>
+                <li>Rules may change — staff decisions and updates take precedence; check Discord for the latest rules.</li>
+            </ol>
+
+            <p style="color:#aaa; margin-top:1rem;">If you have questions about these rules, open a support ticket in Discord and a staff member will assist you.</p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            <p style="color:#444">&copy; 2026 <span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span></p>
+        </div>
+    </footer>
+
+    <script>
+    // Petal generator for rules header (match homepage behavior)
+    (function createPetals(){
+        const container = document.getElementById('blossom-box');
+        if (!container) return;
+        container.innerHTML = '';
+        const petalCount = 18;
+        for (let i = 0; i < petalCount; i++) {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            const startX = Math.random() * 100;
+            const size = Math.random() * 8 + 6;
+            const duration = Math.random() * 4 + 4;
+            const delay = Math.random() * 8;
+            petal.style.left = `${startX}%`;
+            petal.style.width = `${size}px`;
+            petal.style.height = `${size}px`;
+            // start slightly above the header so the fall looks natural
+            petal.style.top = '-12px';
+            // explicitly use the default 'fall' animation
+            petal.style.animationName = 'fall';
+            petal.style.animationDuration = `${duration}s`;
+            petal.style.animationDelay = `-${delay}s`;
+            container.appendChild(petal);
+        }
+    })();
+    </script>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

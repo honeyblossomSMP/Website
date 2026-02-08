@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoneyBlossomSMP | Staff</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Staff page specific styles */
+        .staff-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .group-photo-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid rgba(255, 179, 0, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .group-photo-section h2 {
+            color: var(--honey);
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(255, 179, 0, 0.2);
+        }
+
+        .group-photo {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(255, 179, 0, 0.1), rgba(255, 183, 197, 0.1));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 1.2rem;
+            border: 2px dashed rgba(255, 179, 0, 0.3);
+            margin: 1rem auto;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .staff-card {
+            background: rgba(26, 26, 26, 0.9);
+            border: 2px solid rgba(255, 179, 0, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .staff-card:hover {
+            border-color: rgba(255, 179, 0, 0.5);
+            box-shadow: 0 8px 25px rgba(255, 179, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .staff-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(255, 179, 0, 0.2), rgba(255, 183, 197, 0.2));
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border: 3px solid rgba(255, 179, 0, 0.3);
+        }
+
+        .staff-name {
+            color: var(--honey);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        .staff-role {
+            color: var(--blossom);
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            text-shadow: 0 0 5px rgba(255, 183, 197, 0.15);
+        }
+
+        .staff-description {
+            color: #ddd;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .staff-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-honey">Honey</span>
+                <span class="logo-blossom">Blossom</span>
+                <span class="logo-smp">SMP</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="wiki.html">Wiki</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="https://discord.gg/De2NNtTgkZ" target="_blank" class="nav-btn">Join Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="title-container">
+                <div class="blossom-container" id="blossom-box"></div>
+                <h1 class="main-title">👑 <span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span> Staff 👑</h1>
+            </div>
+            <p class="subtitle">Meet the team keeping the server sweet and running smooth</p>
+        </div>
+    </header>
+
+    <main class="staff-container">
+        <section class="group-photo-section">
+            <h2>The Team</h2>
+            <div class="group-photo">
+                👥 Group Photo Coming Soon
+            </div>
+        </section>
+
+        <section>
+            <h2 style="color: var(--honey); text-align: center; margin-bottom: 2rem; text-shadow: 0 0 10px rgba(255, 179, 0, 0.2); white-space: nowrap;">Our Staff Members</h2>
+            
+            <div class="staff-grid">
+                <!-- Co-Owner 1 -->
+                <div class="staff-card">
+                    <div class="staff-avatar">👑</div>
+                    <div class="staff-name">Co-Owner</div>
+                    <div class="staff-role">Server Lead</div>
+                    <div class="staff-description">Co-founder of HoneyBlossomSMP. Oversees server direction, community growth, and ensures the sweet atmosphere everyone loves.</div>
+                </div>
+
+                <!-- Co-Owner + Tech Admin -->
+                <div class="staff-card">
+                    <div class="staff-avatar">🔧</div>
+                    <div class="staff-name">Co-Owner</div>
+                    <div class="staff-role">Tech Lead</div>
+                    <div class="staff-description">Co-founder and technical mastermind. Manages infrastructure, plugins, and keeps the server running honey-smooth at peak performance.</div>
+                </div>
+
+                <!-- Tech Admin -->
+                <div class="staff-card">
+                    <div class="staff-avatar">⚙️</div>
+                    <div class="staff-name">Tech Admin</div>
+                    <div class="staff-role">Infrastructure Support</div>
+                    <div class="staff-description">Handles technical issues, maintains server stability, and provides support for all technical operations. Keeps us running 24/7.</div>
+                </div>
+
+                <!-- Admin 1 -->
+                <div class="staff-card">
+                    <div class="staff-avatar">⚔️</div>
+                    <div class="staff-name">Admin</div>
+                    <div class="staff-role">Moderation Lead</div>
+                    <div class="staff-description">Ensures fair gameplay and enforces server rules with integrity. Manages disputes and maintains our welcoming community standards.</div>
+                </div>
+
+                <!-- Admin 2 -->
+                <div class="staff-card">
+                    <div class="staff-avatar">🛡️</div>
+                    <div class="staff-name">Admin</div>
+                    <div class="staff-role">Community Moderator</div>
+                    <div class="staff-description">Helps manage the community, assists players with concerns, and ensures everyone follows the rules. Your go-to for support.</div>
+                </div>
+
+                <!-- Helper 1 -->
+                <div class="staff-card">
+                    <div class="staff-avatar">🍯</div>
+                    <div class="staff-name">Helper</div>
+                    <div class="staff-role">Player Support</div>
+                    <div class="staff-description">Assists players with questions and helps guide new members through their HoneyBlossomSMP journey. Always happy to help!</div>
+                </div>
+
+                <!-- Helper 2 -->
+                <div class="staff-card">
+                    <div class="staff-avatar">✨</div>
+                    <div class="staff-name">Helper</div>
+                    <div class="staff-role">Community Support</div>
+                    <div class="staff-description">Welcomes new players and maintains our positive, inclusive community atmosphere. Your friendly face on the server!</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3><span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span></h3>
+                <p>A premium community <span class="logo-smp">SMP</span> powered by Ryzen 9 9950X hardware. Fast, stable, and sweet.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://discord.gg/De2NNtTgkZ">Support</a></li>
+                    <li><a href="rules.html">Rules</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-status">
+                <h4>Server Info</h4>
+                <p>Version: 1.21.x</p>
+                <p id="footer-player-count">Loading players...</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 <span class="logo-honey">Honey</span><span class="logo-blossom">Blossom</span><span class="logo-smp">SMP</span>. Not an official Minecraft product.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

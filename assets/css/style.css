@@ -1,0 +1,224 @@
+:root {
+    --honey: #FFB300;
+    --blossom: #FFB7C5;
+    --dark: #121212;
+    --discord: #5865F2;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark);
+    color: white;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 179, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Lexend', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.06rem; /* tighten spacing between parts */
+}
+
+/* Logo color parts */
+.logo-honey { color: var(--honey); display: inline-block; margin: 0; }
+.logo-blossom { color: var(--blossom); display: inline-block; margin: 0; }
+
+.logo-smp {
+    display: inline-block;
+    margin-left: 0.15rem;
+    /* Favor blossom pink in gradient */
+    background: linear-gradient(45deg, var(--honey) 20%, var(--blossom) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-btn {
+    background: var(--honey);
+    color: var(--dark) !important;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #121212 100%);
+}
+
+/* Account for fixed navbar */
+.hero {
+    padding-top: 4.5rem;
+    box-sizing: border-box;
+}
+
+/* Title & Petal Area */
+.title-container {
+    position: relative;
+    display: inline-block;
+    padding: 4rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.main-title {
+    font-family: 'Lexend', sans-serif;
+    font-size: clamp(3rem, 10vw, 6rem);
+    margin: 0;
+    background: linear-gradient(45deg, var(--honey), var(--blossom));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 4; /* Keep above petals */
+    white-space: nowrap;
+}
+
+/* Override parent gradient for individual colors */
+.main-title .logo-honey,
+.main-title .logo-blossom {
+    -webkit-text-fill-color: currentColor;
+    color: inherit;
+    background: none;
+}
+
+.main-title .logo-honey { color: var(--honey); }
+.main-title .logo-blossom { color: var(--blossom); }
+
+/* Preserve gradient on SMP text */
+.main-title .logo-smp {
+    display: inline-block;
+    margin-left: 0.15rem;
+    background: linear-gradient(45deg, var(--honey) 20%, var(--blossom) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.blossom-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8rem; /* Space for falling petals */
+    pointer-events: none;
+    z-index: 0; /* Behind UI */
+    overflow: visible; /* Let petals overflow */
+}
+
+.petal {
+    position: absolute;
+    background-color: var(--blossom);
+    border-radius: 150% 0 150% 0;
+    opacity: 0;
+    animation: fall 6s linear infinite; /* Override via inline styles */
+    animation-fill-mode: both;
+    will-change: transform, opacity;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-20vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+}
+
+/* Discord Button */
+.discord-link-wrapper { text-decoration: none; display: inline-block; }
+
+.discord-card {
+    background: var(--discord);
+    padding: 20px 50px;
+    border-radius: 15px;
+    margin: 2rem 0;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 3;
+}
+
+.discord-card:hover { transform: scale(1.05); background: #4752C4; box-shadow: 0 10px 20px rgba(88, 101, 242, 0.3); }
+
+.dc-text { display: block; font-weight: bold; font-size: 1.3rem; color: white; }
+.label { display: block; font-size: 0.7rem; letter-spacing: 2px; color: white; margin-bottom: 4px; }
+.click-hint { display: block; font-size: 0.8rem; opacity: 0.8; color: white; margin-top: 4px; }
+
+/* Status Bar */
+.status-bar { color: var(--honey); font-weight: 600; margin-top: 1rem; }
+
+/* Map */
+.map-container { padding: 100px 20px; text-align: center; }
+iframe {
+    width: 95%; max-width: 1200px; height: 700px;
+    border: 1px solid var(--blossom); border-radius: 20px;
+    box-shadow: 0 0 50px rgba(255, 183, 197, 0.1);
+}
+
+/* Footer */
+.main-footer {
+    background: #0a0a0a; padding: 4rem 2rem 1.5rem;
+    border-top: 1px solid rgba(255, 183, 197, 0.05);
+}
+
+.footer-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem;
+}
+
+.footer-brand h3 { color: var(--honey); margin-bottom: 1rem; }
+.footer-links h4, .footer-status h4 { color: var(--blossom); margin-bottom: 1rem; }
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { color: #888; text-decoration: none; transition: 0.3s; }
+.footer-links a:hover { color: white; }
+
+.footer-bottom {
+    text-align: center; border-top: 1px solid #222;
+    padding-top: 2rem; margin-top: 3rem; color: #444; font-size: 0.8rem;
+}

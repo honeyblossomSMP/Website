@@ -1,0 +1,17 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+.env.local
+.env.*.local
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore build/deployment files
+node_modules/
+.cache/
+dist/
