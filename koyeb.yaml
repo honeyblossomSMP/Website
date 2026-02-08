@@ -1,0 +1,23 @@
+services:
+  - name: honeyblossom-website
+    git:
+      repo: https://github.com/honeyblossomSMP/Website
+      branch: main
+      
+    docker:
+      dockerfile: ./Dockerfile
+      
+    routes:
+      - path: /
+        port: 8080
+        
+    env:
+      - key: PORT
+        value: "8080"
+    
+    scaling:
+      min_instances: 1
+      max_instances: 1
+      
+    regions:
+      - fra
