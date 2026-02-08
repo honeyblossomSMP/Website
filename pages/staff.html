@@ -70,15 +70,25 @@
 
         .staff-avatar {
             width: 120px;
-            height: 120px;
+            height: 140px;
             background: linear-gradient(135deg, rgba(255, 179, 0, 0.2), rgba(255, 183, 197, 0.2));
-            border-radius: 50%;
+            border-radius: 8px;
             margin: 0 auto 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
             border: 3px solid rgba(255, 179, 0, 0.3);
+            overflow: hidden;
+            background-size: cover;
+            background-position: center 10%;
+        }
+
+        .staff-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
         }
 
         .staff-name {
@@ -154,7 +164,9 @@
             <div class="staff-grid">
                 <!-- Co-Owner 1 -->
                 <div class="staff-card">
-                    <div class="staff-avatar">👑</div>
+                    <div class="staff-avatar">
+                        <img src="../assets/img/owner1.png" alt="Co-Owner">
+                    </div>
                     <div class="staff-name">Co-Owner</div>
                     <div class="staff-role">Server Lead</div>
                     <div class="staff-description">Co-founder of HoneyBlossomSMP. Oversees server direction, community growth, and ensures the sweet atmosphere everyone loves.</div>
@@ -162,7 +174,9 @@
 
                 <!-- Co-Owner + Tech Admin -->
                 <div class="staff-card">
-                    <div class="staff-avatar">🔧</div>
+                    <div class="staff-avatar">
+                        <img src="../assets/img/techleadadmin.png" alt="Co-Owner Tech Lead">
+                    </div>
                     <div class="staff-name">Co-Owner</div>
                     <div class="staff-role">Tech Lead</div>
                     <div class="staff-description">Co-founder and technical mastermind. Manages infrastructure, plugins, and keeps the server running honey-smooth at peak performance.</div>
@@ -170,7 +184,9 @@
 
                 <!-- Tech Admin -->
                 <div class="staff-card">
-                    <div class="staff-avatar">⚙️</div>
+                    <div class="staff-avatar">
+                        <img src="../assets/img/techsupportadmin.png" alt="Tech Admin">
+                    </div>
                     <div class="staff-name">Tech Admin</div>
                     <div class="staff-role">Infrastructure Support</div>
                     <div class="staff-description">Handles technical issues, maintains server stability, and provides support for all technical operations. Keeps us running 24/7.</div>
@@ -178,7 +194,9 @@
 
                 <!-- Admin 1 -->
                 <div class="staff-card">
-                    <div class="staff-avatar">⚔️</div>
+                    <div class="staff-avatar">
+                        <img src="../assets/img/moderationleadadmin.png" alt="Admin Moderation Lead" style="object-position: 45% 25%;">
+                    </div>
                     <div class="staff-name">Admin</div>
                     <div class="staff-role">Moderation Lead</div>
                     <div class="staff-description">Ensures fair gameplay and enforces server rules with integrity. Manages disputes and maintains our welcoming community standards.</div>
@@ -186,7 +204,9 @@
 
                 <!-- Admin 2 -->
                 <div class="staff-card">
-                    <div class="staff-avatar">🛡️</div>
+                    <div class="staff-avatar">
+                        <img src="../assets/img/communitymoderatoradmin.png" alt="Admin Community Moderator">
+                    </div>
                     <div class="staff-name">Admin</div>
                     <div class="staff-role">Community Moderator</div>
                     <div class="staff-description">Helps manage the community, assists players with concerns, and ensures everyone follows the rules. Your go-to for support.</div>
@@ -194,7 +214,9 @@
 
                 <!-- Helper 1 -->
                 <div class="staff-card">
-                    <div class="staff-avatar">🍯</div>
+                    <div class="staff-avatar">
+                        <img src="../assets/img/playersupporthelper.png" alt="Helper Player Support">
+                    </div>
                     <div class="staff-name">Helper</div>
                     <div class="staff-role">Player Support</div>
                     <div class="staff-description">Assists players with questions and helps guide new members through their HoneyBlossomSMP journey. Always happy to help!</div>
@@ -202,7 +224,9 @@
 
                 <!-- Helper 2 -->
                 <div class="staff-card">
-                    <div class="staff-avatar">✨</div>
+                    <div class="staff-avatar">
+                        <img src="../assets/img/communitysupporthelper.png" alt="Helper Community Support">
+                    </div>
                     <div class="staff-name">Helper</div>
                     <div class="staff-role">Community Support</div>
                     <div class="staff-description">Welcomes new players and maintains our positive, inclusive community atmosphere. Your friendly face on the server!</div>
